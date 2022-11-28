@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>Copa do Mundo de Jogo da Velha!</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+    </head>
+    <body>
+        <div class="topnav" id="myTopnav">
+            <a href="/">Home</a>
+            {% if not username %}
+            <a href="/login">Login</a>
+            <a href="/register">Registro</a>
+            {% else %}
+            <a href="/games">Jogos</a>
+            <a href="javascript:void(0);" onclick="newgame()">Novo Jogo</a>
+            <a href="javascript:void(0);" onclick="logout()">Sair</a>
+            {% endif %}
+            </a>
+        </div>
+        <p align="center"><img src="{{ url_for('static', filename='ttt.png') }}" width="64" height="64"></p>
+        <p align="center"><span class="ttt_title">Copa do Mundo de Jogo da Velha - 2022!</span></p>
+        
+        {% block content %}
+        {% endblock %}
+    </body>
+<html>

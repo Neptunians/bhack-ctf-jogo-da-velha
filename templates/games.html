@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div align="center">
+        <p><H2>Seus Jogos</H2></p>
+    </div>
+    <div align="center">
+        <table>
+            <tr>
+                <td align="center"><div class="ttt_game_title"><strong>Jogo</strong></div></td>
+                <td align="center"><div class="ttt_game_title"><strong>Status</strong></div></td>
+            </tr>
+            {% for game in games %}
+            <tr>
+                <td><a class="ttt_game_link" href="/game/{{ game['game_key'] }}">{{ game['game_key'] }}</a></td>
+                <td align="center">{{ game['status'] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br><br>
+    </div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <input type="hidden" id="key" value="{{ game_key }}">
+    <div align="center">
+        <p><H2>Jogo: {{ game_key }}</H2></p>
+    </div>
+    <div align="center">
+        <p><span class="ttt_message" id="ttt_message">Você começa! Você é o "X"</span></p>
+        <table class="ttt_table">
+            <tr>
+                <td><div id="pos_1" class="ttt_position" onclick="move(1);"></div></td>
+                <td><div id="pos_2" class="ttt_position" onclick="move(2);"></div></td>
+                <td><div id="pos_3" class="ttt_position" onclick="move(3);"></div></td>
+            </tr>
+            <tr>
+                <td><div id="pos_4" class="ttt_position" onclick="move(4);"></div></td>
+                <td><div id="pos_5" class="ttt_position" onclick="move(5);"></div></td>
+                <td><div id="pos_6" class="ttt_position" onclick="move(6);"></div></td>
+            </tr>
+            <tr>
+                <td><div id="pos_7" class="ttt_position" onclick="move(7);"></div></td>
+                <td><div id="pos_8" class="ttt_position" onclick="move(8);"></div></td>
+                <td><div id="pos_9" class="ttt_position" onclick="move(9);"></div></td>
+            </tr>
+        </table>
+        <script>setup_game();</script>
+        <br><br>
+    </div>
+{% endblock %}

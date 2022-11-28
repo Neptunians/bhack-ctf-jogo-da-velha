@@ -1,0 +1,25 @@
+version: '3.7'
+services:
+  jogo-da-velha-db:
+    image: mysql:8
+    restart: always
+    volumes:
+      - ./db/schema.sql:/docker-entrypoint-initdb.d/schema.sql:ro
+    environment:
+      - MYSQL_RANDOM_ROOT_PASSWORD=yes
+      - MYSQL_DATABASE=ttt
+      - MYSQL_USER=ttt
+      - MYSQL_PASSWORD=NAO_DISPONIVEL
+
+  tic-tac-toe:
+    build: .
+    restart: always
+    ports:
+      - 5000:5000
+    environment:
+      - MYSQL_DATABASE=ttt
+      - MYSQL_USER=ttt_app
+      - MYSQL_PASSWORD=simples
+      - MYSQL_HOST=jogo-da-velha-db
+    depends_on:
+      - jogo-da-velha-db
